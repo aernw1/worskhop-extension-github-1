@@ -2,9 +2,16 @@
     width: 20px;
     height: 20px;
     margin-right: 5px;
-    vertical-align: middle;
+    vertical-align: text-bottom !important;
 }
 
 .octicon.octicon-file {
     display: none !important;
+}
+
+.file-icon[src*="c.png"],
+.file-icon[src*="cpp.png"],
+.file-icon[src*="haskell.png"] {
+    vertical-align: text-bottom !important;
+    margin-top: -1px;
 }
