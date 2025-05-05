@@ -18,12 +18,22 @@
       "default_icon": {
         "html": "icons/html.png",
         "css": "icons/css.png",
-        "js": "icons/js.png"
+        "js": "icons/js.png",
+        "ts": "icons/ts.png",
+        "c++": "icons/c++.png",
+        "c": "icons/c.png",
+        "bash": "icons/bash.png",
+        "python": "icons/python.png"
       }
     },
     "icons": {
       "html": "icons/html.png",
       "css": "icons/css.png",
-      "js": "icons/js.png"
+      "js": "icons/js.png",
+      "ts": "icons/ts.png",
+      "c++": "icons/c++.png",
+      "c": "icons/c.png",
+      "bash": "icons/bash.png",
+      "python": "icons/python.png"
     }
   }
