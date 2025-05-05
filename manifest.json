@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "GitHub File Icons",
+    "version": "1.0",
+    "description": "Ajoute des icônes visuelles pour les types de fichiers sur GitHub",
+    "permissions": [
+      "storage"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["*://github.com/*"],
+        "js": ["js/content.js"],
+        "css": ["css/styles.css"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": {
+        "html": "icons/html.png",
+        "css": "icons/css.png",
+        "js": "icons/js.png"
+      }
+    },
+    "icons": {
+      "html": "icons/html.png",
+      "css": "icons/css.png",
+      "js": "icons/js.png"
+    }
+  }
