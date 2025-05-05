@@ -8,7 +8,9 @@ const fileIcons = {
     '.py': 'python.png',
     '.sh': 'bash.png',
     '.c': 'c.png',
+    '.h': 'c.png',
     '.cpp': 'cpp.png',
+    '.hpp': 'cpp.png',
     '.hs': 'haskell.png',
 };
 
