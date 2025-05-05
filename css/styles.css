@@ -1,13 +1,10 @@
 .file-icon {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     margin-right: 5px;
     vertical-align: middle;
-  }
-  
-  /* Ajustements pour compatibilité avec le thème sombre */
-  @media (prefers-color-scheme: dark) {
-    .file-icon {
-      filter: brightness(0.8); /* Réduit la luminosité pour le mode sombre */
-    }
-  }
+}
+
+.octicon.octicon-file {
+    display: none !important;
+}
