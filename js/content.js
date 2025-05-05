@@ -21,26 +21,9 @@ function addFileIcons() {
             if (element.tagName === 'A') {
                 const fileName = element.textContent.trim();
                 const extension = fileName.match(/\.[0-9a-z]+$/i)?.[0]?.toLowerCase();
-                if (extension && fileIcons[extension]) {
-                    if (!element.querySelector('.file-icon')) {
-                        const icon = document.createElement('img');
-                        const iconPath = 'icons/' + fileIcons[extension];
-                        icon.onerror = function() {
-                            console.error(`Failed to load icon: ${iconPath}`);
-                            console.log('Attempted full URL:', chrome.runtime.getURL(iconPath));
-                            console.log('Current extension context:', chrome.runtime.id);
-                            console.log('Extension manifest:', chrome.runtime.getManifest());
-                            this.style.display = 'none';
-                        };
-                        icon.src = chrome.runtime.getURL(iconPath);
-                        icon.className = 'file-icon';
-                        icon.style.width = '20px';
-                        icon.style.height = '20px';
-                        icon.style.marginRight = '5px';
-                        icon.style.verticalAlign = 'middle';
-                        icon.alt = '';
-                        element.prepend(icon);
-                    }
+                if (extension && fileIcons[extension] && !element.querySelector('.file-icon')) {
+                    const iconPath = 'icons/' + fileIcons[extension];
+                    element.prepend(createFileIcon(iconPath));
                 }
                 console.log(`Processing file: ${fileName}`);
             }
@@ -67,3 +50,22 @@ if (targetNode) {
     console.error('Could not find a valid target node for MutationObserver');
 }
 addFileIcons();
+
+function createFileIcon(iconPath) {
+    const icon = document.createElement('img');
+    icon.onerror = function() {
+        console.error(`Failed to load icon: ${iconPath}`);
+        console.log('Attempted full URL:', chrome.runtime.getURL(iconPath));
+        console.log('Current extension context:', chrome.runtime.id);
+        console.log('Extension manifest:', chrome.runtime.getManifest());
+        this.style.display = 'none';
+    };
+    icon.src = chrome.runtime.getURL(iconPath);
+    icon.className = 'file-icon';
+    icon.style.width = '20px';
+    icon.style.height = '20px';
+    icon.style.marginRight = '5px';
+    icon.style.verticalAlign = 'middle';
+    icon.alt = '';
+    return icon;
+}
